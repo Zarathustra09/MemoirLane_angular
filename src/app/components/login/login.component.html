@@ -1,0 +1,37 @@
+<body>
+<div class="wrapper">
+  <header>Login Form</header>
+  <form (ngSubmit)="login()" #loginForm="ngForm">
+    <div class="field email">
+      <div class="input-area">
+        <input
+          type="text"
+          placeholder="Username"
+          [(ngModel)]="username"
+          name="username"
+          required>
+        <i class="icon fas fa-envelope"></i>
+        <i class="error error-icon fas fa-exclamation-circle" *ngIf="!username && loginForm.submitted"></i>
+      </div>
+      <div class="error error-txt" *ngIf="!username && loginForm.submitted">Username can't be blank</div>
+    </div>
+    <div class="field password">
+      <div class="input-area">
+        <input
+          [type]="type"
+          placeholder="Password"
+          [(ngModel)]="password"
+          name="password"
+          required>
+        <i class="icon fas fa-lock"></i>
+        <i class="error error-icon fas fa-exclamation-circle" *ngIf="!password && loginForm.submitted"></i>
+        <i class="icon" [ngClass]="eyeIcon" (click)="hideShowPass()"></i>
+      </div>
+      <div class="error error-txt" *ngIf="!password && loginForm.submitted">Password can't be blank</div>
+    </div>
+    <div class="pass-txt"><a href="#">Forgot password?</a></div>
+    <input type="submit" value="Login" [disabled]="!loginForm.valid">
+  </form>
+  <div class="sign-txt">Not yet a member? <a (click)="register()">Signup now</a></div>
+</div>
+</body>

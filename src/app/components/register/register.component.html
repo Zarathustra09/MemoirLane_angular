@@ -1,0 +1,49 @@
+<body>
+<div class="wrapper">
+  <header>Sign Up Form</header>
+  <form (ngSubmit)="register()" #registerForm="ngForm">
+    <div class="field email">
+      <div class="input-area">
+        <input
+          type="text"
+          placeholder="Username"
+          [(ngModel)]="registerDto.username"
+          name="username"
+          required>
+        <i class="icon fas fa-envelope"></i>
+        <i class="error error-icon fas fa-exclamation-circle" *ngIf="!registerDto.username && registerForm.submitted"></i>
+      </div>
+      <div class="error error-txt" *ngIf="!registerDto.username && registerForm.submitted">Username can't be blank</div>
+    </div>
+    <div class="field password">
+      <div class="input-area">
+        <input
+          type="password"
+          placeholder="Password"
+          [(ngModel)]="registerDto.password"
+          name="password"
+          required>
+        <i class="icon fas fa-lock"></i>
+        <i class="error error-icon fas fa-exclamation-circle" *ngIf="!registerDto.password && registerForm.submitted"></i>
+      </div>
+      <div class="error error-txt" *ngIf="!registerDto.password && registerForm.submitted">Password can't be blank</div>
+    </div>
+    <div class="field password">
+      <div class="input-area">
+        <input
+          type="password"
+          placeholder="Re-enter password"
+          [(ngModel)]="registerDto.confirmPassword"
+          name="confirmPassword"
+          required>
+        <i class="icon fas fa-lock"></i>
+        <i class="error error-icon fas fa-exclamation-circle" *ngIf="!registerDto.confirmPassword && registerForm.submitted"></i>
+      </div>
+      <div class="error error-txt" *ngIf="!registerDto.confirmPassword && registerForm.submitted">Confirm Password can't be blank</div>
+    </div>
+    <div class="pass-txt"><a href="#">Forgot password?</a></div>
+    <input type="submit" value="Sign Up" [disabled]="!registerForm.valid">
+  </form>
+  <div class="sign-txt">Already a member? <a (click)="login()">Login</a></div>
+</div>
+</body>
