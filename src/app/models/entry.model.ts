@@ -1,6 +1,6 @@
 export class Entry {
   id: number;
-  userId: number;
+  user_Id: number;
   title: string;
   content: string;
   created_At: Date;
@@ -15,7 +15,7 @@ export class Entry {
     updated_At: Date
   ) {
     this.id = id;
-    this.userId = userId;
+    this.user_Id = userId;
     this.title = title;
     this.content = content;
     this.created_At = created_At;

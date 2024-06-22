@@ -1,13 +1,13 @@
 <div class="wrapper">
-  <header>Calendar</header>
   <full-calendar
     *ngIf="calendarOptions"
     #fullcalendar
     [options]="calendarOptions"
+
   >
     <ng-template #eventContent let-arg>
       <div class="event-content">
-        <b>{{ arg.event.title }}</b>
+        <b>{{ arg.event.title }}</b> - {{ arg.event.start | date: 'short' }}
       </div>
     </ng-template>
   </full-calendar>
