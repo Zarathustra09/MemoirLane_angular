@@ -1,1 +1,15 @@
-<p>update-entry works!</p>
+<div id="notebook-paper">
+  <header>
+    <h1>
+      <input id="entry-title" [(ngModel)]="entry.title" placeholder="Enter title" />
+    </h1>
+  </header>
+  <div id="content" class="pt-2">
+    <div class="hipsum">
+      <textarea id="entry-content" [(ngModel)]="entry.content" placeholder="Enter content"></textarea>
+    </div>
+  </div>
+</div>
+
+<button class="btn btn-primary" (click)="updateEntry()">Update Entry</button>
+<button class="btn btn-primary" (click)="deleteEntry()">Delete Entry</button>
